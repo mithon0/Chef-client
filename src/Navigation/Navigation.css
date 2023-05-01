@@ -1,0 +1,45 @@
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    background: rgba(51, 170, 51, .1);
+    
+    align-items: center;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.store{
+    color: red;
+}
+.nav-name{
+    color: aliceblue;
+}
+.nav-link ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+li a:active{
+    text-decoration: inherit;
+    color: blue;
+}
+li a:visited{
+    text-decoration: inherit;
+    
+}
+li a:focus{
+    color: black;
+    text-decoration:underline 2px red;
+}
+
+@media  screen and (max-width:990px) {
+    .nav-link ul{
+        display: block;
+    }
+}
+
