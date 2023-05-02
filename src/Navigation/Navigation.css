@@ -14,10 +14,11 @@
 .nav-name{
     color: aliceblue;
 }
-.nav-link ul{
+.nav-link .n{
     display: flex;
     gap: 20px;
     list-style: none;
+    padding-right: 100px;
 }
 li a{
     text-decoration: none;
@@ -40,6 +41,9 @@ li a:focus{
 @media  screen and (max-width:990px) {
     .nav-link ul{
         display: block;
+        position: absolute;
+        top: 10px;
+        left: 240px;
     }
 }
 
