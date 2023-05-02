@@ -21,8 +21,8 @@ const Navigation = () => {
                    
                    </div>
                     <div className={`n d-md-flex  ${open ?'d-block':'d-none'}`}>
-                    <li><Link>Home</Link></li>
-                    <li><Link>Blog</Link></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
                     </div>
                    
                 </ul>
