@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {RouterProvider} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import router from './Router/router';
+import AuthProvider from './AuthProvider/AuthProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <RouterProvider router={router}></RouterProvider>
+  <AuthProvider><RouterProvider router={router}></RouterProvider></AuthProvider>
   </React.StrictMode>
 );
 

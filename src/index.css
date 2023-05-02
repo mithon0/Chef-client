@@ -7,4 +7,11 @@ body {
 }
 *{
   margin-top: 0;
+  
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Dancing+Script:wght@400;500;700&family=Edu+NSW+ACT+Foundation:wght@600&family=Lato:wght@400;700&family=Manrope:wght@600&display=swap');
+
+.jj{
+  font-family: 'Dancing Script', cursive;
+  }
