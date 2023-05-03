@@ -12,4 +12,4 @@
 
 
 # live site
-    [Live Site:](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
+[Live Site:](http://www.google.fr/ "Named link title") and http://www.google.fr/ or <http://example.com/>
