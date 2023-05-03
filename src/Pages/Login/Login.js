@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -9,9 +9,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const { name, createUserWithGoogle, createUserWithGitHub, logIn } = useContext(AuthContext);
+  const { name, createUserWithGoogle, createUserWithGitHub, logIn, } = useContext(AuthContext);
+  const navigate = useNavigate();
+    const location = useLocation();
   const googleProvider = new GoogleAuthProvider();
   const GitProvider = new GithubAuthProvider();
+  console.log('login page location', location)
+  const from = location.state?.from?.pathname || '/chef/1';
+  console.log(from);
 
 
   const GoogleHandler = () => {
@@ -22,6 +27,8 @@ const Login = () => {
       .then(result => {
         const loggedUser = result;
         console.log(loggedUser);
+        navigate(from, { replace: true })
+
       })
       .catch(error => {
         console.log(error.massage);

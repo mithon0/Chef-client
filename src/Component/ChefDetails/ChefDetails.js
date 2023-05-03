@@ -1,14 +1,28 @@
-import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card,  Container, } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import { BsBookmarkStarFill } from "react-icons/bs";
+import { ToastContainer, toast } from 'react-toastify';
 
 import { FcLike } from "react-icons/fc";
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
+    const [click,setClick]=useState(false)
 
     const { picture, name, years_experience, bio, num_recipes, likes } = chefDetails;
     console.log(chefDetails.recipes_set);
+
+    const favoritHandler =()=>{
+        setClick(true);
+        toast('recipe is your favorite');
+
+    }
+    let disabled = false;
+    if(click===true){
+        disabled =true;
+    }
+
 
     // =============================================================================================
     // For Each _______________________________
@@ -28,7 +42,7 @@ const ChefDetails = () => {
                         <Card.Text>
                             {description}
                         </Card.Text>
-                        <h6></h6>
+                        
                         
                         
                         <h2>Ingredient</h2>
@@ -45,6 +59,16 @@ const ChefDetails = () => {
                         </div>
                         <h1>Cooking_Method</h1>
                         <p className="card-text">{cooking_method}</p>
+                        <div className='d-flex'>
+                            <p className='text-primary m-3'>Add to Fevorite</p>
+                            <button
+                             onClick={favoritHandler} id='demo' className='btn btn-primary px-4 py-0' 
+                              disabled={disabled}
+                            ><BsBookmarkStarFill/></button>
+                            <ToastContainer/>
+                        </div>
+
+                       
                     </Card.Body>
                 </Card>
 
