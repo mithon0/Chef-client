@@ -1,32 +1,60 @@
-import React, { useContext } from 'react';
-import { BsGoogle,BsGithub } from "react-icons/bs";
+import React, { useContext, useState } from 'react';
+import { BsGoogle, BsGithub } from "react-icons/bs";
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { getAuth, updateProfile } from "firebase/auth";
+import app from '../../firebase/firebase.config';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
-  const {createUserWithEmailPass}=useContext(AuthContext);
-  const registerHandler=(event)=>{
-        event.preventDefault();
-        const form =event.target;
-        const email=form.email.value;
-        const password =form.password.value;
-        const name=form.name.value;
-        const imgUrl =form.Url.value;
-        console.log(email,password);
+  const { createUserWithEmailPass, } = useContext(AuthContext);
+  const registerHandler = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    const imgUrl = form.Url.value;
+    console.log(email, password);
+    if(!email){
+      toast("Please inter email address");
+      return 
+      
+    }
+    if(!password.length == 6){
+      toast("password at least 6 cherecter")
+      return
+    }
+    createUserWithEmailPass(email, password)
+      .then(result => {
+        const loggedUser = result
+        console.log(loggedUser);
+        toast("Account Create Succesfull")
+      })
+      .catch(error => {
+        console.log(error.massage);
+        toast(error.message)
+      });
 
 
-        createUserWithEmailPass(email,password)
-        .then(result=>{
-          const loggedUser =result
-          console.log(loggedUser);
-        })
-        .catch(error=>{
-          console.log(error.massage);
-        })
+    const auth = getAuth(app);
+    updateProfile(auth.currentUser, {
+      displayName: `${name}`, photoURL: `${imgUrl}`
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
 
 
   }
+
+
   return (
     <div>
 
@@ -66,9 +94,10 @@ const Register = () => {
         </Form>
 
         <div className='text-center'>
-        <Button variant="outline-primary"><BsGoogle/> Sign In Google</Button>
-        <Button variant="outline-secondary"><BsGithub/> Sign In With Git Hub</Button>
+          <Button variant="outline-primary"><BsGoogle /> Sign In Google</Button>
+          <Button variant="outline-secondary"><BsGithub /> Sign In With Git Hub</Button>
         </div>
+        <ToastContainer></ToastContainer>
       </Container>
     </div>
   );

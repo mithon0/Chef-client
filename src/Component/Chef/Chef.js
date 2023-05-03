@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import ChefCard from './ChefCard';
+import './Chef.css'
 
 const Chef = () => {
-    const [chef,setChef]=useState(null);
-
+    const [chefData,setchefData]=useState([])
+    const url ="http://localhost:4000/chef";
     useEffect(()=>{
-        fetch('http://localhost:4000/chef')
+        fetch(url)
         .then(res=>res.json())
-        .then(data=>setChef(data))
+        .then(data=>setchefData(data))
     },[])
+   
 
-    console.log(chef);
+
     return (
-        <div>
-            chef
+        <div className='mx-auto'>
+           <h1 className='text-center'>Japanies chef</h1>
+           <div className='chef-card '>
+            {
+                chefData.map(chef=><ChefCard
+                key={chef.id}
+                chef={chef}
+                ></ChefCard>)
+            }
+           </div>
+
         </div>
     );
 };

@@ -5,7 +5,10 @@ import img3 from '../../img/img3.jpg';
 
 import { Button, Carousel } from 'react-bootstrap';
 import Chef from '../Chef/Chef';
+import { useLoaderData } from 'react-router-dom';
 const Home = () => {
+    
+
     return (
        <div>
          <div className='d-flex justify-content-between mb-5'> 
