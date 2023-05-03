@@ -5,6 +5,7 @@ import { BsBookmarkStarFill } from "react-icons/bs";
 import { ToastContainer, toast } from 'react-toastify';
 
 import { FcLike } from "react-icons/fc";
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
@@ -36,7 +37,10 @@ const ChefDetails = () => {
 
 
                 <Card className='ms-' style={{ width: '22rem' }}>
+                   
+                    <LazyLoad offset={300} threshold={0.10} onContentVisible={() => {console.log('loaded!')}}>
                     <Card.Img className='p-4' variant="top" src={image} />
+    </LazyLoad>
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
@@ -92,7 +96,10 @@ const ChefDetails = () => {
             <Container className='ms-5 mb-5'>
                 
                         <Card className='ms-5' style={{ width: '70rem' }}>
+                           
+                            <LazyLoad offset={300} threshold={0.10} onContentVisible={() => {console.log('loaded!')}}>
                             <Card.Img variant="top w-50 mx-auto mt-4 rounded" src={picture} />
+    </LazyLoad>
                             <Card.Body>
                                 <Card.Title>{name}</Card.Title>
                                 <Card.Text>

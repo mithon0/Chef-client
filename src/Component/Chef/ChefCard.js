@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
+import LazyLoad from 'react-lazy-load';
+
 
 const ChefCard = ({chef}) => {
     // console.log(chef);
@@ -9,7 +11,9 @@ const ChefCard = ({chef}) => {
     return (
         <div>
           <Card style={{ width: '27rem' }}>
-      <Card.Img variant="top" src={picture} />
+          <LazyLoad offset={300} threshold={0.10} onContentVisible={() => {console.log('loaded!')}}>
+          <Card.Img variant="top" src={picture} />
+    </LazyLoad>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
