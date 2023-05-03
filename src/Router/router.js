@@ -33,7 +33,7 @@ const router =createBrowserRouter([
         {
             path:'chef/:id',
             element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:4000/chef/${params.id}`)
+            loader:({params})=>fetch(`https://chef-server-site-mithon0.vercel.app/chef/${params.id}`)
         },
         {
             path:'/blog',

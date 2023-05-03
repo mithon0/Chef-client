@@ -4,7 +4,7 @@ import './Chef.css'
 
 const Chef = () => {
     const [chefData,setchefData]=useState([])
-    const url ="http://localhost:4000/chef";
+    const url ="https://chef-server-site-mithon0.vercel.app/chef";
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())

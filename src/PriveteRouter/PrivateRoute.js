@@ -6,7 +6,7 @@ import { Spinner } from 'react-bootstrap';
 const PrivateRoute = ({children}) => {
 
     const {user, loading} = useContext(AuthContext);
-    const location = useLocation();
+    
     console.log('user in private route', user);
     if(loading){
         return <Spinner animation="border" variant="primary" />
@@ -15,7 +15,7 @@ const PrivateRoute = ({children}) => {
     if(user){
         return children;
     }
-    return <Navigate state={{from: location}} to="/login" replace></Navigate>;
+   else{ return<Navigate to="/login" ></Navigate>}
 };
 
 export default PrivateRoute;
