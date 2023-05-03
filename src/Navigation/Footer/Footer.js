@@ -5,7 +5,7 @@ import { BsFillTelephoneFill,BsFillEnvelopeFill,BsGeoAltFill,BsFacebook,BsInstag
 const Footer = () => {
     return (
         <div className='text-white bg-dark p-5 '>
-            <div className='d-flex gap-5 text-center ms-5 ps-5'>
+            <div className='d-md-flex gap-5 text-center ms-5 ps-5'>
             <h6><BsFillTelephoneFill /> 718-257-7631</h6>
             <h6><BsFillEnvelopeFill />hello@yourdomain.com </h6>
             <h6> <BsGeoAltFill></BsGeoAltFill>9287 Merry Falls, Woodland, NY</h6>

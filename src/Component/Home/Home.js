@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
        <div>
-         <div className='d-flex justify-content-between mb-5'> 
+         <div className='d-md-flex justify-content-between mb-5'> 
             <div className='align-items-center text-center mt-5 pt-5 mx-5 px-5'>
                 <h1 className='text-danger jj'>Japanese <br /> Restaurant</h1>
                 <p className='px-5 '>
