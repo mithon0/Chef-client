@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
 
 const ChefCard = ({chef}) => {
-    console.log(chef);
+    // console.log(chef);
     const {picture,name,years_experience,bio,id,num_recipes,likes}=chef;
     return (
         <div>

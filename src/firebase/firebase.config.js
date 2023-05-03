@@ -2,15 +2,16 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
+console.log("environment", process.env.REACT_APP_SECRET_NAME);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDj9M-T8wmX_kdEaAQm9BBLwIq3-9di0eI",
-  authDomain: "chef-project-7d80d.firebaseapp.com",
-  projectId: "chef-project-7d80d",
-  storageBucket: "chef-project-7d80d.appspot.com",
-  messagingSenderId: "982423755255",
-  appId: "1:982423755255:web:ef5a2f41a47cb04c1a76f2"
+  apiKey:process.env.REACT_APP_SECRET_API_KEY,
+  authDomain: process.env.REACT_APP_SECRET_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_SECRET_PROJECT_ID,
+  storageBucket:process.env.REACT_APP_SECRET_STORAGE_BUCKET ,
+  messagingSenderId:process.env.REACT_APP_SECRET_SENDER_ID ,
+  appId:process.env.REACT_APP_SECRET_APP_ID 
 };
 
 // Initialize Firebase
